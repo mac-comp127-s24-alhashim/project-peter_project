@@ -8,3 +8,6 @@
 - **Inspiration:** I was inspired to make this project by my passion for online gambling. As I am too scared to ever gamble with real money, I find great amounts of joy in playing online Blackjack, as the consequences to going broke are nonexistent. I think this will be a fun challenge to implement all the logic properly. 
 - **Rough Implementation Plan:** As the sole member of this project, I will be taking on all the responsibilities of this project. I will need to create a GUI that allows the player to interact with the underlying game logic. 
 
+## Project Sketch and UML Diagram
+- The sketch and UML diagram can be found here: [here](https://drive.google.com/drive/folders/1xSsqX25Rrsggnvo-Dl4NS1ZrQLiJVb9r?usp=sharing)
+
