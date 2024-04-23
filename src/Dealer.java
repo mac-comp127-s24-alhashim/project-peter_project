@@ -1,10 +1,16 @@
 import java.util.ArrayList;
 
 public class Dealer {
+    /** The hand of cards held by the dealer. */
     private ArrayList<Card> hand= new ArrayList<>();
     
     public Dealer(){}
 
+    /**
+     * Calculates the total value of the dealer's hand.
+     *
+     * @return the total value of the dealer's hand
+     */
     public int dealerTotal(){
         int numAces = 0;
         int handTotal = 0;
@@ -47,14 +53,23 @@ public class Dealer {
         return handTotal;
     }
 
+     /**
+     * Gives a card to the dealer and adds it to the hand.
+     */
     public void dealerGetsCard(Card card){
         hand.add(card);
     }
 
+    /**
+     * Retrieves the dealer's hand of cards.
+     */
     public ArrayList<Card> getDealerHand(){
         return hand;
     }
 
+    /**
+     * Resets the dealer's hand by clearing it.
+     */
     public void resetHand(){
         hand.clear();
     }

@@ -35,7 +35,9 @@ public class Game {
     private Image backGround = new Image("felt.jpg");
 
 
-
+    /**
+    * Constructs a new game instance.
+    */
     public Game(){
         canvas = new CanvasWindow("DOUBLE DOWN!!!", CANVAS_WIDTH, CANVAS_HEIGHT);
         deck = new Deck(4);  
@@ -65,10 +67,15 @@ public class Game {
         game.addChips();
         game.startGame();    
     }
-    //checks to see if player can bet based on if they have enough money and what chips player pressed
+
+    /**
+    * Checks if the player can place a bet based on their available funds and the selected chip.
+    *
+    * @param point the point representing the location where the chip was pressed
+    */
     public void  checkIfCanBet(Point point){
         for(Chip chip:chips){
-            if(chip.getEllipse() == canvas.getElementAt(point) && dealOnScreen ==true && chip.getValue()<amountLeftInBank){
+            if(chip.getEllipse() == canvas.getElementAt(point) && dealOnScreen == true && chip.getValue()<amountLeftInBank){
                 currentBet= chip.getValue();
                 totalBet = totalBet + currentBet;
                 addBet();
@@ -78,7 +85,10 @@ public class Game {
             }
         }
     }
-    //adds a bet to the screen and the counter in the instance variables
+
+    /**
+    * Adds a bet to the screen and updates the counter in the instance variables.
+    */
     public void addBet(){
         amountLeftInBank = amountLeftInBank - currentBet;
          String totalPersonTotalString = "You have " + amountLeftInBank + "$";
@@ -89,7 +99,10 @@ public class Game {
         canvas.add(amountBet,150,200);
         canvas.draw();
     }
-    //adds chips to the screen
+
+    /**
+    * Adds chips to the screen.
+    */
     public void addChips(){
         double[] valuesOfChips = {1,5,10,25};
         double x=100;
@@ -103,7 +116,10 @@ public class Game {
             x=x+100;
         }
     }
-    //resets round by taking off all unnecesary elements on screen and resets totals
+
+    /**
+    * Resets the current round of the game.
+    */
     public void resetRound(){
         if(deck.getNumberOfCardsInDeck()<20){
             deck = new Deck(4);
@@ -124,7 +140,10 @@ public class Game {
         startGame();
         
     }
-    //starts round of game
+
+    /**
+    * Starts a new game by shuffling the deck and adding the deal button to the screen.
+    */
     public void startGame(){
         deck.shuffleDeck();
         canvas.add(dealButton);
@@ -132,7 +151,10 @@ public class Game {
         dealButton.setCenter(700,400);
         
     }
-    //plays first round of blackjack
+
+    /**
+    * Plays a round of the game by setting up the initial game state and displaying player and dealer cards.
+    */
     public void playRound(){
         canvas.remove(dealButton);
         dealOnScreen = false;
@@ -168,7 +190,10 @@ public class Game {
         }
         canvas.draw();
     }
-    // doubles bet and gives player one card
+
+    /**
+    * Doubles the current bet and gives the player one card.
+    */
     public void doubleChosen(){
         amountLeftInBank = amountLeftInBank - totalBet;
         totalBet = totalBet *2;
@@ -187,7 +212,10 @@ public class Game {
         displayPlayerTotal();
         dealersTurn();
     }
-    //removes command buttons
+
+    /**
+    * Handles the player choosing to stand, removes command buttons, and proceeds to the dealer's turn.
+    */
     public void stand(){
         canvas.remove(hitButton);
         canvas.remove(standButton);
@@ -197,7 +225,10 @@ public class Game {
         dealersTurn();
 
     }
-    //removes facedown card and gives dealer a card until at least 17
+    
+    /**
+    * Handles the dealer's turn by removing the face-down card and giving the dealer a card until the total is at least 17.
+    */
     public void dealersTurn(){
         canvas.remove(faceDown);
         while(dealer.dealerTotal()<=16){
@@ -210,7 +241,11 @@ public class Game {
         }
         whoWinsGame();
     }
-    //gives player a card and checks if they can still hit after that turn
+
+    /**
+    * Handles the player choosing to hit, gives the player a card, and checks if they can still hit.
+    * If the player can hit, adds hit and stand buttons again; otherwise, proceeds to the dealer's turn.
+    */
     public void hit(){
         canvas.remove(hitButton);
         canvas.remove(standButton);
@@ -230,7 +265,10 @@ public class Game {
             dealersTurn();
         }
     }
-    //gives player starting two hands
+
+    /**
+     * Gives player starting two hands
+     */
     public void givePlayerCardsFirst(){
         for(int i=0;i<2;i++){
             Card card = deck.getCard(i);
@@ -238,7 +276,10 @@ public class Game {
             deck.removeCard(i);
             }
     }
-    // shows the dealer hand total
+
+    /**
+    * Displays the total value of the dealer's hand on the screen.
+    */
     public void displayDealerTotal(){
         int dealerTotall = dealer.dealerTotal();
         String dealerTotalString = Integer.toString(dealerTotall);
@@ -249,7 +290,10 @@ public class Game {
         dealerTotal.setFont(FontStyle.BOLD,16);
         
     }
-    //shows the players hand total
+
+    /**
+    * Displays the total value of the player's hand on the screen.
+    */
     public void displayPlayerTotal(){
         int playerTotalHigh = player.highHandTotal();
         String playerTotalString = Integer.toString(playerTotalHigh);
@@ -266,7 +310,10 @@ public class Game {
             canvas.add(playerTotal,300,100);
         }
     }
-    //puts the dealer cards on the screen
+
+    /**
+    * Displays the images of the cards in the dealer's hand on the screen.
+    */
     public void dealerImages(){
         double xLocation = 490;
         double yLocation = 60;
@@ -275,9 +322,11 @@ public class Game {
             canvas.add(card.getImage(),xLocation,yLocation);
             xLocation+=130;
         }
-
     }
-    //adds player cards onto the screen
+
+    /**
+    * Displays the images of the cards in the player's hand on the screen.
+    */
     public void addPlayerImage(ArrayList<Card> cards){
         double xLoc =500;
         double yLoc = 400;
@@ -286,13 +335,19 @@ public class Game {
             xLoc+=130;
         }
     }
-    //removes cards based on list of cards given
+
+    /**
+    * Removes cards based on list of cards given.
+    */
     public void removeCards(ArrayList<Card> cards){
         for(Card card : cards){
             canvas.remove(card.getImage());
         }
     }
-    //calculates who wins the game
+
+    /**
+    * Calculates and displays the outcome of the game.
+    */
     public void whoWinsGame(){
         int playerHighTotal = player.highHandTotal();
         int dealerHighTotal = dealer.dealerTotal();

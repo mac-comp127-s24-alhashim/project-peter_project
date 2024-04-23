@@ -1,10 +1,16 @@
 import java.util.ArrayList;
 
 public class Player {
+    /** The hand of cards held by the player. */
     private ArrayList<Card> hand= new ArrayList<>();
     
     public Player(){}
 
+     /**
+     * Checks if the player has a blackjack (an Ace and a 10-value card).
+     *
+     * @return true if the player has a blackjack, otherwise false
+     */
     public boolean checkForBJ(){
         int numAces =0;
         int numTens =0;
@@ -24,6 +30,11 @@ public class Player {
         }
     }
     
+    /**
+     * Calculates the total value of the player's hand with Ace counted as 1.
+     *
+     * @return the low total value of the player's hand
+     */
     public int lowHandTotal(){
         int handTotal = 0;
         for(Card card: hand){
@@ -61,6 +72,11 @@ public class Player {
         return handTotal;
     }
     
+    /**
+     * Calculates the total value of the player's hand with Ace counted as 11 or 1 to minimize busting.
+     *
+     * @return the high total value of the player's hand
+     */
     public int highHandTotal(){
         int numAces = 0;
         int handTotal = 0;
@@ -104,18 +120,32 @@ public class Player {
     return handTotal;
 }
     
+    /**
+     * Retrieves the cards held by the player.
+     */
     public ArrayList<Card> getCards(){
         return hand;
     }
     
+    /**
+     * Gives a card to the player and adds it to the hand.
+     */
     public void playerGetsCard(Card card){
         hand.add(card);
     }
     
+    /**
+     * Resets the player's hand by clearing it.
+     */
     public void resetHand(){
         hand.clear();
     }
     
+    /**
+     * Checks if the player can hit (take another card).
+     *
+     * @return true if the player's total value is less than 21, otherwise false
+     */
     public boolean canPlayerHit(){
         if(lowHandTotal()>=21){
             return false;
