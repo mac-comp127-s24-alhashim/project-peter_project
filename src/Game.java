@@ -39,7 +39,7 @@ public class Game {
     * Constructs a new game instance.
     */
     public Game(){
-        canvas = new CanvasWindow("DOUBLE DOWN!!!", CANVAS_WIDTH, CANVAS_HEIGHT);
+        canvas = new CanvasWindow("Blackjack", CANVAS_WIDTH, CANVAS_HEIGHT);
         deck = new Deck(4);  
         hitButton.onClick(()->{hit();});
         standButton.onClick(()->stand());
