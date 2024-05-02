@@ -20,3 +20,5 @@ At this time, there are no known bugs.
 
 To run the software, simply open ```Game.java``` and run it in the IDE of your choice.
 
+Screen shots of the game can be found [here.](https://drive.google.com/drive/folders/1z5-k-oErOrMXIlogMZZWKNSxKaMAt2_c?usp=drive_link)
+
