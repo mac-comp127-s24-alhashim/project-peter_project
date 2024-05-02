@@ -11,3 +11,10 @@
 ## Project Sketch and UML Diagram
 - The sketch and UML diagram can be found here: [here](https://drive.google.com/drive/folders/1xSsqX25Rrsggnvo-Dl4NS1ZrQLiJVb9r?usp=sharing)
 
+## Instructions
+
+For this project, you will need to install the latest version of Java. 
+This project uses the Macalester Graphics Library.
+
+At this time, there are no known bugs.
+
