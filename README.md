@@ -22,3 +22,5 @@ To run the software, simply open ```Game.java``` and run it in the IDE of your c
 
 Screen shots of the game can be found [here.](https://drive.google.com/drive/folders/1z5-k-oErOrMXIlogMZZWKNSxKaMAt2_c?usp=drive_link)
 
+The youtube video with a short demo can be found [here.](https://youtu.be/PXQ3cvz4O9w?si=L1DKIC1ZVu1K0R_A)
+
